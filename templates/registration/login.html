@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+{% comment %} {% block title %}Login Page - Ogun State Hajj Portal{% endblock %} {% endcomment %}
+{% load static %}
+{% block content %}
+
+
+
+ <!-- Header Layout -->
+    <div class="mdk-header-layout js-mdk-header-layout">
+
+        <!-- Header -->
+
+        <div id="header" class="mdk-header bg-dark js-mdk-header mb-0" data-effects="waterfall blend-background" data-fixed data-condenses>
+            <div class="mdk-header__content">
+
+                <div data-primary class="navbar navbar-expand-sm navbar-dark bg-dark p-0" id="default-navbar">
+                    <div class="container">
+
+                        <!-- Navbar Brand -->
+                        <a href="/ class="navbar-brand">
+                            <img class="navbar-brand-icon" src="{% static 'assets/images/hackthon_logo.png' %}" width="30" alt="e-Learner">
+                            <span class="d-none d-md-block">e-Trainer</span>
+                        </a>
+
+                        <!-- Main Navigation -->
+                        <ul class="nav navbar-nav ml-auto d-none d-sm-flex">
+                            <li class="nav-item">
+                                <a href="pricing.html" class="nav-link">Pricing</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="signup.html" class="nav-link">Signup</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a href="login.html" class="nav-link">Login</a>
+                            </li>
+                        </ul>
+                        <!-- // END Main Navigation -->
+
+                        <!-- Navbar toggler -->
+                        <button class="navbar-toggler navbar-toggler-right d-block d-md-none" type="button" data-toggle="sidebar">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- // END Header -->
+
+        <!-- Header Layout Content -->
+        <div class="mdk-header-layout__content page-content pb-0">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="bg-gradient-primary py-32pt">
+                <div class="container d-flex flex-column flex-md-row align-items-center text-center text-md-left">
+                        <img src="{% static 'assets/images/illustration/student/128/white.svg' %}" class="mr-md-32pt mb-32pt mb-md-0" alt="Teacher">                    <div class="flex mb-32pt mb-md-0">
+                        <h1 class="text-white mb-0">Sign In</h1>
+                        <p class="lead measure-lead text-white-50">Account Management</p>
+                    </div>
+                    <a href="{% url 'teacher:teacher-signup' %}" class="btn btn-outline-white flex-column">
+                        Don't have an account?
+                        <span class="btn__secondary-text">Sign up Today!</span>
+                    </a>
+                </div>
+            </div>
+            <div class=" pt-32pt pt-sm-64pt pb-32pt">
+                <div class="container page__container">
+              
+
+                    <form class="col-md-5 p-0 mx-auto" method="post" action="." novalidate>
+                     {% include 'form.html' %}
+						{% csrf_token %}
+							<input type="hidden" name="next" value="{{ next }}">
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input id="email" type="text" name="username" class="form-control" placeholder="Your Username ...">
+                              <div style="color:red">{{ form.usename.errors }}</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input id="password" type="password" name="password" class="form-control" placeholder="Your first and last name ...">
+                            <p class="text-right"><a href=/" class="small">Forgot your password?</a></p>
+                            <div style="color:red">{{ form.password.errors }}</div>
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-lg btn-accent">Login</button>
+                        </div>
+                    </form>
+
+
+
+                </div>
+            </div>
+            <div class="page-separator m-0">
+                <div class="page-separator__text">or sign-in with</div>
+                <div class="page-separator__bg-top "></div>
+            </div>
+            <div class="bg-body pt-32pt pb-32pt pb-md-64pt text-center">
+                <div class="container page__container">
+                    <a href="student-dashboard.html" class="btn btn-lg btn-secondary btn-block-xs">Facebook</a>
+                    <a href="student-dashboard.html" class="btn btn-lg btn-secondary btn-block-xs">Twitter</a>
+                    <a href="student-dashboard.html" class="btn btn-lg btn-secondary btn-block-xs">Google+</a>
+                </div>
+            </div>
+
+
+
+        </div>
+        <!-- // END Header Layout Content -->
+
+
+
+{% endblock %}
+  

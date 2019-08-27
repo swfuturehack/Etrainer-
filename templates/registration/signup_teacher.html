@@ -1,0 +1,244 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load  widget_tweaks %}
+{% block content %}
+        <!-- // END Header -->
+
+    <!-- Header Layout -->
+    <div class="mdk-header-layout js-mdk-header-layout">
+
+        <!-- Header -->
+
+        <div id="header" class="mdk-header bg-dark js-mdk-header mb-0" data-effects="waterfall blend-background" data-fixed data-condenses>
+            <div class="mdk-header__content">
+
+                <div data-primary class="navbar navbar-expand-sm navbar-dark bg-dark p-0" id="default-navbar">
+                    <div class="container">
+
+                        <!-- Navbar Brand -->
+                        <a href="index.html" class="navbar-brand">
+                            <img class="navbar-brand-icon" src="assets/images/logo/white-100@2x.png" width="30" alt="Tutorio">
+                            <span class="d-none d-md-block">e-learner</span>
+                        </a>
+
+                        <!-- Main Navigation -->
+                        <ul class="nav navbar-nav ml-auto d-none d-sm-flex">
+                            <li class="nav-item">
+                                <a href="pricing.html" class="nav-link">Pricing</a>
+                            </li>
+                            <li class="nav-item active">
+                                <a href="signup.html" class="nav-link">Signup</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="login.html" class="nav-link">Login</a>
+                            </li>
+                        </ul>
+                        <!-- // END Main Navigation -->
+
+                        <!-- Navbar toggler -->
+                        <button class="navbar-toggler navbar-toggler-right d-block d-md-none" type="button" data-toggle="sidebar">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- // END Header -->
+
+        <!-- Header Layout Content -->
+        <div class="mdk-header-layout__content page-content pb-0">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="py-64pt bg-gradient-primary">
+                <div class="container d-flex flex-column flex-md-row align-items-center text-center text-md-left">
+                    <img src="{% static 'assets/images/illustration/student/128/white.svg' %}" class="mr-md-32pt mb-32pt mb-md-0" alt="Teacher">
+                    <div class="flex mb-32pt mb-md-0">
+                        <h1 class="text-white mb-8pt">Sign Up</h1>
+                        <p class="lead measure-lead text-white-50">Change your future today with over 1.000 professional courses from the top industry leading teachers and professionals.</p>
+                    </div>
+                    <a href="" class="btn btn-outline-white flex-column">
+                        Questions?
+                        <span class="btn__secondary-text">Visit our Help Center</span>
+                    </a>
+                </div>
+            </div>
+            <div class="py-32pt navbar-submenu">
+                <div class="container page__container">
+                    <div class="progression-bar progression-bar--active-accent">
+                        <a href="pricing.html" class="progression-bar__item progression-bar__item--complete">
+                            <span class="progression-bar__item-content">
+                                <i class="material-icons progression-bar__item-icon">done</i>
+                                <span class="progression-bar__item-text h5 mb-0 text-uppercase">Pricing</span>
+                            </span>
+                        </a>
+                        <a href="signup.html" class="progression-bar__item progression-bar__item--complete progression-bar__item--active">
+                            <span class="progression-bar__item-content">
+                                <i class="material-icons progression-bar__item-icon"></i>
+                                <span class="progression-bar__item-text h5 mb-0 text-uppercase">Account details</span>
+                            </span>
+                        </a>
+                        <a href="signup-payment.html" class="progression-bar__item">
+                            <span class="progression-bar__item-content">
+                                <i class="material-icons progression-bar__item-icon"></i>
+                                <span class="progression-bar__item-text h5 mb-0 text-uppercase">Payment details</span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class=" py-32pt py-lg-64pt">
+                <div class="container page__container">
+                    <div class="col-lg-10 p-0 mx-auto">
+                        <div class="row">
+                            <div class="col-md-6 mb-24pt mb-md-0">
+
+                            
+                                <form method="post" action="." novalidate>
+                                {% include 'form.html' %}
+                                {% csrf_token %}
+				                <input type="hidden" name="next" value="{{ next }}">
+								
+                                    <h1 class="display-4 mb-10">Sign up as A Teacher</h1>
+                                    <p class="mb-30">Create your account and start shopping on Nigeriaware</p>
+                                    
+                                         
+                                    <div class="form-row">
+                                   
+                                        <div class="col-md-6 form-group">
+                                            {% render_field form.first_name class="form-control" placeholder="First Name" %}
+                                           
+                                            <div style="color:red">{{ form.first_name.errors }}</div>
+                         
+
+                                        </div>
+                                        <div class="col-md-6 form-group">
+                                            {% render_field form.last_name class="form-control" placeholder="Last Name" %}
+                                            <div style="color:red">{{ form.last_name.errors }}</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <!-- <input class="form-control" placeholder="Username" name="username" type="username">-->
+                                        {% render_field form.username class="form-control" placeholder="Username" %}
+                                        <div style="color:red">{{ form.username.errors }}</div>
+                                    </div>
+                                    <div class="form-group">
+                                        {% render_field form.email class="form-control" placeholder="Email" %}
+                                        <div style="color:red">{{ form.email.errors }}</div>
+
+                                    </div>
+                                    <div class="form-group">
+                                        
+                                        {% render_field form.password1 class="form-control" placeholder="Password" %}
+                                        <div style="color:red">{{ form.password1.errors }}</div>
+
+                                    </div>
+                                    <div class="form-group">
+                                       
+                                            
+                                            {% render_field form.password2 class="form-control" placeholder="Confirm Password" %}
+                                            <div style="color:red">{{ form.password2.errors }}</div>
+                                        
+                                    </div>
+
+                                    <div class="custom-control custom-checkbox mb-25">
+                                        <input class="custom-control-input" id="same-address" type="checkbox" checked>
+                                        <label class="custom-control-label font-14" for="same-address">I have read and agree to the <a href=""><u>term and conditions</u></a></label>
+                                    </div> 
+                                    
+                                    <br/>
+
+                                    <button class="btn btn-lg btn-accent" type="submit">Register Now</button>
+                                     
+                                    <!--
+                                    <div class="option-sep">or</div>
+                                    <div class="form-row">
+                                        <div class="col-sm-6 mb-20">
+                                            <button class="btn btn-indigo btn-block btn-wth-icon"> <span class="icon-label"><i class="fa fa-facebook"></i> </span><span class="btn-text">Login with facebook</span></button>
+                                        </div>
+                                        <div class="col-sm-6 mb-20">
+                                            <button class="btn btn-sky btn-block btn-wth-icon"> <span class="icon-label"><i class="fa fa-twitter"></i> </span><span class="btn-text">Login with Twitter</span></button>
+                                        </div>
+                                    </div> 
+                                    -->
+                                    <br/><br/>
+
+
+                                    <p class="text-center">Already have an account? <a href="/">Login In</a></p>
+
+
+                                </form>
+
+
+                            </div>
+
+                            <br/>
+                            
+                            <div class="col-md-6">
+                                <div class="card mb-0">
+                                    <div class="card-body">
+                                        <h5>Purchase summary</h5>
+                                        <div class="d-flex mb-8pt">
+                                            <div class="flex"><strong class="text-70">Subscription</strong></div>
+                                            <strong>Student</strong>
+                                        </div>
+                                        <div class="d-flex mb-16pt pb-16pt border-bottom">
+                                            <span class="material-icons text-muted mr-8pt">check</span>
+                                            <span class="text-70">Access to over 1.000 high quality courses. For individuals.</span>
+                                        </div>
+                                        <div class="d-flex mb-16pt pb-16pt border-bottom">
+                                            <div class="flex"><strong class="text-70">Price</strong></div>
+                                            <strong>US &dollar;9 per month</strong>
+                                        </div>
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" checked id="topic-all">
+                                            <label class="custom-control-label">Terms and conditions</label>
+                                            <small class="form-text text-muted">By checking here and continuing, I agree to the Tutorio Terms of Use</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="page-separator m-0">
+                <div class="page-separator__text">or sign-in with</div>
+                <div class="page-separator__bg-top "></div>
+            </div>
+            <div class="bg-body pt-32pt pb-32pt pb-md-64pt text-center">
+                <div class="container page__container">
+                    <a href="signup-payment.html" class="btn btn-lg btn-secondary btn-block-xs">Facebook</a>
+                    <a href="signup-payment.html" class="btn btn-lg btn-secondary btn-block-xs">Twitter</a>
+                    <a href="signup-payment.html" class="btn btn-lg btn-secondary btn-block-xs">Google+</a>
+                </div>
+            </div>
+
+
+
+
+        </div>
+        <!-- // END Header Layout Content -->
+
+{% endblock %}
